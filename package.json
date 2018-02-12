@@ -36,7 +36,7 @@
   },
   "main": "./index.ts",
   "dependencies": {
-    "@stomp/stompjs": "^4.0.0"
+    "@stomp/stompjs": "ChuckWeb/stomp-websocket.git#master"
   },
   "devDependencies": {
     "@angular/cli": "1.0.0",
