@@ -1,5 +1,20 @@
 # Changelog
 
+## Angular 6
+
+- It will have version numbers in 6.x.x format.
+
+## Angular 2/4/5
+
+- It will have version numbers in 4.x.x format.
+
+### 0.6.4
+
+- Updates in test cases.
+- Documentation update.
+- Updated dependency of @stomp/stompjs to >= 4.0.2
+- [waitForReceipt](https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#waitForReceipt) now passes the frame to the callback.
+
 ### 0.6.3
 
 - Switched to [Compodoc](https://github.com/compodoc/compodoc) from TypeDoc.

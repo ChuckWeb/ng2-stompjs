@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	    <link rel="stylesheet" href="./styles/style.css">
-                 <link rel="stylesheet" href="./styles/Vagrant.css">
+	      <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/Vagrant.css">
     </head>
     <body>
 
@@ -20,267 +20,382 @@
 
         <div class="xs-menu menu" id="mobile-menu">
             <div id="book-search-input" role="search">
-                <input type="text" placeholder="Type to search">
-            </div>
+    <input type="text" placeholder="Type to search">
+</div>
             <nav>
-            
-                <ul class="list">
-            
-                    <li class="title">
-                        <a href="./index.html">@stomp/ng2-stompjs documentation</a>
+
+    <ul class="list">
+
+        <li class="title">
+            <a href="index.html" data-type="index-link">@stomp/ng2-stompjs documentation</a>
+        </li>
+
+        <li class="divider"></li>
+
+
+        <li class="chapter">
+            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
+            <ul class="links">
+                    <li class="link">
+                        <a 
+                            
+                             href="overview.html" 
+                             href="overview.html" 
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-th"></span>Overview
+                        </a>
                     </li>
-            
-                    <li class="divider"></li>
-            
-            
-                    <li class="chapter">
-                        <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
-                        <ul class="links">
-                                <li class="link">
-                                    <a 
-                                        
-                                         href="./overview.html" 
-                                         href="./overview.html" 
-                                        >
-                                        <span class="fa fa-th"></span>Overview
-                                    </a>
-                                </li>
-                                <li class="link">
-                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
-                                </li>
-                                <li class="link">
-                                        <a href="./changelog.html"
-                                    >
-                                        <span class="fa fa-file-text-o"></span>CHANGELOG
-                                    </a>
-                                </li>
-                                <li class="link">
-                                        <a href="./license.html"
-                                    >
-                                        <span class="fa fa-file-text-o"></span>LICENSE
-                                    </a>
-                                </li>
-                        </ul>
+                    <li class="link">
+                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
                     </li>
-            
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-additional-pages"
-                            >
-                            <span class="fa fa-book"></span>
-                            <span>Guides</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-additional-pages"
-                            >
-                                <li class="link ">
-                                    <a href="./additional-documentation/sock-js.html" >Sock JS</a>
-                                </li>
-                                <li class="link ">
-                                    <a href="./additional-documentation/contributing.html" >Contributing</a>
-                                </li>
-                        </ul>
+                    <li class="link">
+                            <a href="changelog.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
+                        </a>
                     </li>
-            
-            
-            
-            
-            
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-injectables-links"
-                            >
-                            <span class="fa fa-long-arrow-down"></span>
-                            <span>Injectables</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-injectables-links"
-                            >
-                                <li class="link">
-                                    <a href="./injectables/StompConfig.html" >StompConfig</a>
-                                </li>
-                                <li class="link">
-                                    <a href="./injectables/StompRService.html" >StompRService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="./injectables/StompService.html" >StompService</a>
-                                </li>
-                        </ul>
+                    <li class="link">
+                            <a href="license.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
+                        </a>
                     </li>
-            
-            
-            
-            
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-miscellaneous-links"
-                            >
-                            <span class="fa fa-cubes"></span>
-                            <span>Miscellaneous</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-miscellaneous-links"
-                            >
-                                <li class="link">
-                                  <a href="./miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
-                                </li>
-                                <li class="link">
-                                  <a href="./miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
-                                </li>
-                        </ul>
+                    <li class="link">
+                        <a href="dependencies.html"
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-list"></span>Dependencies
+                        </a>
                     </li>
-            
-            
-                    <li class="chapter">
-                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+            </ul>
+        </li>
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#xs-additional-pages"
+                >
+                <span class="fa fa-fw fa-book"></span>
+                <span>Guides</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="xs-additional-pages"
+                >
+                    <li class="link ">
+                        <a href="additional-documentation/sock-js.html" data-type="entity-link" data-context-id="additional">Sock JS</a>
                     </li>
-            
-            
-                </ul>
-            
-            </nav>
+                    <li class="link ">
+                        <a href="additional-documentation/contributing.html" data-type="entity-link" data-context-id="additional">Contributing</a>
+                    </li>
+            </ul>
+        </li>
+
+        <li class="chapter modules">
+            <a data-type="chapter-link" href="modules.html">
+                <div class="menu-toggler linked" data-toggle="collapse"
+                        data-target="#xs-modules-links"
+                >
+                    <span class="fa fa-fw fa-archive"></span>
+                    <span class="link-name">Modules</span>
+                    <span class="fa fa-angle-down"></span>
+                </div>
+            </a>
+            <ul class="links collapse"
+                    id="xs-modules-links"
+                >
+                    <li class="link">
+                        <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
+                    </li>
+            </ul>
+        </li>
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#xs-classes-links"
+                >
+                <span class="fa fa-fw fa-file-code-o"></span>
+                <span>Classes</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="xs-classes-links"
+                >
+                    <li class="link">
+                        <a href="classes/MyStompRService.html" data-type="entity-link">MyStompRService</a>
+                    </li>
+                    <li class="link">
+                        <a href="classes/MyStompService.html" data-type="entity-link">MyStompService</a>
+                    </li>
+            </ul>
+        </li>
+
+                <li class="chapter">
+                    <div class="simple menu-toggler" data-toggle="collapse"
+                            data-target="#xs-injectables-links"
+                        >
+                        <span class="fa fa-fw fa-long-arrow-down"></span>
+                        <span>Injectables</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                    <ul class="links collapse"
+                            id="xs-injectables-links"
+                        >
+                            <li class="link">
+                                <a href="injectables/StompConfig.html" data-type="entity-link">StompConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="injectables/StompRService.html" data-type="entity-link">StompRService</a>
+                            </li>
+                            <li class="link">
+                                <a href="injectables/StompService.html" data-type="entity-link">StompService</a>
+                            </li>
+                    </ul>
+                </li>
+
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#xs-miscellaneous-links"
+                >
+                <span class="fa fa-fw fa-cubes"></span>
+                <span>Miscellaneous</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="xs-miscellaneous-links"
+                >
+                    <li class="link">
+                      <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                    </li>
+                    <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
+                    <li class="link">
+                      <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
+                    </li>
+                    <li class="link">
+                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
+                    </li>
+            </ul>
+        </li>
+
+
+        <li class="chapter">
+            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
+        </li>
+
+
+    </ul>
+
+</nav>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
                    <nav>
-                   
-                       <ul class="list">
-                   
-                           <li class="title">
-                               <a href="./index.html">@stomp/ng2-stompjs documentation</a>
-                           </li>
-                   
-                           <li class="divider"></li>
-                   
-                               <div id="book-search-input" role="search">
-                                   <input type="text" placeholder="Type to search">
-                               </div>
-                   
-                           <li class="chapter">
-                               <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
-                               <ul class="links">
-                                       <li class="link">
-                                           <a 
-                                               
-                                                href="./overview.html" 
-                                                href="./overview.html" 
-                                               >
-                                               <span class="fa fa-th"></span>Overview
-                                           </a>
-                                       </li>
-                                       <li class="link">
-                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
-                                       </li>
-                                       <li class="link">
-                                               <a href="./changelog.html"
-                                           >
-                                               <span class="fa fa-file-text-o"></span>CHANGELOG
-                                           </a>
-                                       </li>
-                                       <li class="link">
-                                               <a href="./license.html"
-                                           >
-                                               <span class="fa fa-file-text-o"></span>LICENSE
-                                           </a>
-                                       </li>
-                               </ul>
-                           </li>
-                   
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#additional-pages"
-                   >
-                                   <span class="fa fa-book"></span>
-                                   <span>Guides</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="additional-pages"
-                   >
-                                       <li class="link ">
-                                           <a href="./additional-documentation/sock-js.html" >Sock JS</a>
-                                       </li>
-                                       <li class="link ">
-                                           <a href="./additional-documentation/contributing.html" >Contributing</a>
-                                       </li>
-                               </ul>
-                           </li>
-                   
-                   
-                   
-                   
-                   
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#injectables-links"
-                   >
-                                   <span class="fa fa-long-arrow-down"></span>
-                                   <span>Injectables</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="injectables-links"
-                   >
-                                       <li class="link">
-                                           <a href="./injectables/StompConfig.html" >StompConfig</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="./injectables/StompRService.html" >StompRService</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="./injectables/StompService.html" >StompService</a>
-                                       </li>
-                               </ul>
-                           </li>
-                   
-                   
-                   
-                   
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#miscellaneous-links"
-                   >
-                                   <span class="fa fa-cubes"></span>
-                                   <span>Miscellaneous</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="miscellaneous-links"
-                   >
-                                       <li class="link">
-                                         <a href="./miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
-                                       </li>
-                                       <li class="link">
-                                         <a href="./miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
-                                       </li>
-                               </ul>
-                           </li>
-                   
-                   
-                           <li class="chapter">
-                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
-                           </li>
-                   
-                   
-                       </ul>
-                   
-                   </nav>
+
+    <ul class="list">
+
+        <li class="title">
+            <a href="index.html" data-type="index-link">@stomp/ng2-stompjs documentation</a>
+        </li>
+
+        <li class="divider"></li>
+
+            <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+        <li class="chapter">
+            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
+            <ul class="links">
+                    <li class="link">
+                        <a 
+                            
+                             href="overview.html" 
+                             href="overview.html" 
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-th"></span>Overview
+                        </a>
+                    </li>
+                    <li class="link">
+                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
+                    </li>
+                    <li class="link">
+                            <a href="changelog.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
+                        </a>
+                    </li>
+                    <li class="link">
+                            <a href="license.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="dependencies.html"
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-list"></span>Dependencies
+                        </a>
+                    </li>
+            </ul>
+        </li>
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#additional-pages"
+>
+                <span class="fa fa-fw fa-book"></span>
+                <span>Guides</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="additional-pages"
+>
+                    <li class="link ">
+                        <a href="additional-documentation/sock-js.html" data-type="entity-link" data-context-id="additional">Sock JS</a>
+                    </li>
+                    <li class="link ">
+                        <a href="additional-documentation/contributing.html" data-type="entity-link" data-context-id="additional">Contributing</a>
+                    </li>
+            </ul>
+        </li>
+
+        <li class="chapter modules">
+            <a data-type="chapter-link" href="modules.html">
+                <div class="menu-toggler linked" data-toggle="collapse"
+                        data-target="#modules-links"
+                >
+                    <span class="fa fa-fw fa-archive"></span>
+                    <span class="link-name">Modules</span>
+                    <span class="fa fa-angle-down"></span>
+                </div>
+            </a>
+            <ul class="links collapse"
+                    id="modules-links"
+>
+                    <li class="link">
+                        <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
+                    </li>
+            </ul>
+        </li>
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#classes-links"
+>
+                <span class="fa fa-fw fa-file-code-o"></span>
+                <span>Classes</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="classes-links"
+>
+                    <li class="link">
+                        <a href="classes/MyStompRService.html" data-type="entity-link">MyStompRService</a>
+                    </li>
+                    <li class="link">
+                        <a href="classes/MyStompService.html" data-type="entity-link">MyStompService</a>
+                    </li>
+            </ul>
+        </li>
+
+                <li class="chapter">
+                    <div class="simple menu-toggler" data-toggle="collapse"
+                            data-target="#injectables-links"
+>
+                        <span class="fa fa-fw fa-long-arrow-down"></span>
+                        <span>Injectables</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                    <ul class="links collapse"
+                            id="injectables-links"
+>
+                            <li class="link">
+                                <a href="injectables/StompConfig.html" data-type="entity-link">StompConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="injectables/StompRService.html" data-type="entity-link">StompRService</a>
+                            </li>
+                            <li class="link">
+                                <a href="injectables/StompService.html" data-type="entity-link">StompService</a>
+                            </li>
+                    </ul>
+                </li>
+
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#miscellaneous-links"
+>
+                <span class="fa fa-fw fa-cubes"></span>
+                <span>Miscellaneous</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="miscellaneous-links"
+>
+                    <li class="link">
+                      <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                    </li>
+                    <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
+                    <li class="link">
+                      <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
+                    </li>
+                    <li class="link">
+                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
+                    </li>
+            </ul>
+        </li>
+
+
+        <li class="chapter">
+            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
+        </li>
+
+
+    </ul>
+
+</nav>
                </div>
+               <!-- START CONTENT -->
                <div class="content getting-started">
                    <div class="content-data">
 
 <h1 id="-stomp-ng2-stompjs">@stomp/ng2-stompjs</h1>
-<p><a href="https://travis-ci.org/stomp-js/ng2-stompjs"><img src="https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=master" alt="Build Status" class="img-responsive"></a></p>
-<p>An Angular (Angular2, Angular4, Angular5 ...) style wrapper for @stomp/stompjs.</p>
+<p>Angular 2/4/5 <a href="https://travis-ci.org/stomp-js/ng2-stompjs"><img src="https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=angular4" alt="Build Status" class="img-responsive"></a></p>
+<p>Angular 6 <a href="https://travis-ci.org/stomp-js/ng2-stompjs"><img src="https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=master" alt="Build Status" class="img-responsive"></a></p>
+<p>An Angular (Angular2, Angular4, Angular5, Angular6 ...) style wrapper for @stomp/stompjs.</p>
+<h2 id="version-compatibility">Version Compatibility</h2>
+<p>While we tried really hard to support multiple Angular versions with same release -
+actually succeeded for Anguar 2/4/5, it is not possible for Angular 6. This library
+makes quite extensive use of rxjs which has undergone breaking changes in Angular 6.</p>
+<p>Going forward following numbering scheme will be followed:</p>
+<ul>
+<li>6.x.x - managed in <code>master</code> branch, will only support Angular 6 - use dependency like &quot;^6.0.0&quot; </li>
+<li>4.x.x - managed in <code>angular4</code> branch, will support Angular 2/4/5 - use dependency like &quot;^4.0.0&quot;</li>
+</ul>
+<p>For the time being both versions will be maintained. From October 2018, only critical
+updates will be applied to 4.x.x releases.</p>
+<p>As of now both versions offer exactly same APIs.</p>
 <h2 id="special-request">Special Request</h2>
 <p>Recently documentation has been switched to
 <a href="https://github.com/compodoc/compodoc">Compodoc</a> from TypeDoc.
 Please raise an issue if you find broken links or inconsistency in documentation.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Please head to <a href="https://stomp-js.github.io/ng2-stompjs/">https://stomp-js.github.io/ng2-stompjs/</a></p>
+<p>Changelog at <a href="https://stomp-js.github.io/ng2-stompjs/changelog.html">https://stomp-js.github.io/ng2-stompjs/changelog.html</a></p>
 <h2 id="compatibility">Compatibility</h2>
 <p>Tested with Angular CLI generated Angular2 (2.4.0), Angular4 (4.0.0), 
 Angular (5.0.0). 
@@ -312,7 +427,7 @@ using SockJS</li>
 <li>You will need to have a Stomp broker running.</li>
 <li>The sample code on this page assumes you have
 RabbitMQ running with default settings and Web STOMP plugin activated.
-(see: <a href="https://www.rabbitmq.com/web-stomp.html">https://www.rabbitmq.com/web-stomp.html</a>.)</li>
+(see: <a href="https://www.rabbitmq.com/web-stomp.html.">https://www.rabbitmq.com/web-stomp.html.</a>)</li>
 </ul>
 <h3 id="all-the-hard-work">All the Hard Work</h3>
 <ul>
@@ -376,7 +491,7 @@ see: <a href="https://www.rabbitmq.com/stomp.html">https://www.rabbitmq.com/stom
 for RabbitMQ specific details.</p>
 <p>Call <code>subscribe(queueName: string, headers: StompHeaders = {})</code> 
 with name of the queue which returns an Observable (details at:
-<a href="https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#subscribe">https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#subscribe</a>). Any
+<a href="https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#subscribe)">https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#subscribe)</a>. Any
 of Observable specific operators (map, filter, subscribe, etc.) can be
 applied on it. This can also be set into a template with <code>async</code> pipe.</p>
 <p>Example:</p>
@@ -386,7 +501,8 @@ applied on it. This can also be set into a template with <code>async</code> pipe
       return message.body;
     }).subscribe((msg_body: string) =&gt; {
       console.log(`Received: ${msg_body}`);
-    });</code></pre><p>The <code>Message</code> class comes from <code>@stomp/stompjs</code>. So, you will need the
+    });
+</code></pre><p>The <code>Message</code> class comes from <code>@stomp/stompjs</code>. So, you will need the
 following import in the classes where you consume messages:</p>
 <pre class="line-numbers"><code class="language-typescript">import {Message} from &#39;&#64;stomp/stompjs&#39;;</code></pre><h4 id="unsubscribe-from-a-queue">Unsubscribe from a queue</h4>
 <p>You will need to unsubscribe from stomp_subscription (which is an Observer),
@@ -394,7 +510,7 @@ it will then internally unsubscribe from the underlying STOMP queue
 subscription.</p>
 <h4 id="publishing-messages">Publishing messages</h4>
 <p>Call <code>publish(queueName: string, message: string, headers: StompHeaders = {})</code> 
-(details at: <a href="https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#publish">https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#publish</a>).
+(details at: <a href="https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#publish)">https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html#publish)</a>.
 Example:</p>
 <pre class="line-numbers"><code class="language-typescript">this._stompService.publish(&#39;/topic/ng-demo-sub&#39;, &#39;My important message&#39;);</code></pre><p>Please note that <code>message</code> is actually string. So, if you need to send JSON
 you will need to convert it into string (typically using 
@@ -432,7 +548,8 @@ methods to assign a configuration and manually initiate the connection to the ST
 
   providers: [
     StompRService
-  ]</code></pre><pre class="line-numbers"><code class="language-typescript">class YourClass {}
+  ]
+</code></pre><pre class="line-numbers"><code class="language-typescript">class YourClass {}
     constructor(private _stompService: StompRService) { }
 
     public initStomp() {
@@ -453,10 +570,12 @@ updated configuration.</p>
 <li><a href="https://github.com/JimiC">Jimi (Dimitris) Charalampidis</a></li>
 <li><a href="https://github.com/kum-deepak">Deepak Kumar</a></li>
 <li>Astha Deep</li>
+<li><a href="https://github.com/mpromonet">Michel Promonet</a></li>
 <li>Everyone involved at <a href="https://github.com/stomp-js/stomp-websocket">https://github.com/stomp-js/stomp-websocket</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p>MIT</p>
+
 
 
 
@@ -481,6 +600,7 @@ updated configuration.</p>
     </div>
 </div>
 </div>
+               <!-- END CONTENT -->
            </div>
        </div>
 
@@ -493,7 +613,10 @@ updated configuration.</p>
 
        <script src="./js/compodoc.js"></script>
 
-       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 0;</script>
+        <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+        </script>
 
        <script src="./js/search/search.js"></script>
        <script src="./js/search/lunr.min.js"></script>
@@ -504,6 +627,7 @@ updated configuration.</p>
        <script src="./js/libs/prism.js"></script>
        <script src="./js/sourceCode.js"></script>
        <script src="./js/search/search_index.js"></script>
+
 
     </body>
 </html>

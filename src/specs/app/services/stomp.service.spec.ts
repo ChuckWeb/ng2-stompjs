@@ -1,12 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { StompService, StompState, StompConfig } from '../../../..';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { filter } from 'rxjs/operators';
+import { StompService, StompState } from '../../../..';
+
 import { defaultConfig, MyStompService, stompServiceFactory } from './stomp.service.factory';
 import { Message } from '@stomp/stompjs';
-import { ensureStompConnected, ensureStompDisconnected } from './helpers';
+import { ensureStompConnected, disconnetStompRAndEnsure } from './helpers';
 import { StompHeaders } from '../../../stomp-headers';
 
 describe('StompService', () => {
@@ -21,7 +20,7 @@ describe('StompService', () => {
 
   // Disconnect and wait till it actually disconnects
   afterEach((done) => {
-    ensureStompDisconnected(stompService, done);
+    disconnetStompRAndEnsure(stompService, done);
     stompService = null;
   });
 
@@ -74,10 +73,12 @@ describe('StompService', () => {
       const msg = 'My very special message 02' + Math.random();
 
       // Subscribe and set up the Observable, the underlying STOMP Service may not have been connected
-      stompService.subscribe(queueName).filter((message: Message) => {
-        // Since the queue is durable, we may receive older messages as well, discard those
-        return message.body === msg;
-      }).subscribe((message: Message) => {
+      stompService.subscribe(queueName).pipe(
+        filter((message: Message) => {
+          // Since the queue is durable, we may receive older messages as well, discard those
+          return message.body === msg;
+        })
+      ).subscribe((message: Message) => {
         expect(message.body).toBe(msg);
         done();
       });
@@ -93,10 +94,12 @@ describe('StompService', () => {
       let firstTime = true;
 
       // Subscribe and set up the Observable, the underlying STOMP Service may not have been connected
-      stompService.subscribe(queueName).filter((message: Message) => {
-        // Since the queue is durable, we may receive older messages as well, discard those
-        return message.body === msg;
-      }).subscribe((message: Message) => {
+      stompService.subscribe(queueName).pipe(
+        filter((message: Message) => {
+          // Since the queue is durable, we may receive older messages as well, discard those
+          return message.body === msg;
+        })
+      ).subscribe((message: Message) => {
         expect(message.body).toBe(msg);
         done();
       });

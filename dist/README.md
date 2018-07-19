@@ -1,8 +1,22 @@
 # @stomp/ng2-stompjs
 
-[![Build Status](https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=master)](https://travis-ci.org/stomp-js/ng2-stompjs)
+Angular 2/4/5 [![Build Status](https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=master)](https://travis-ci.org/stomp-js/ng2-stompjs)
+Angular 6 [![Build Status](https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=angular6)](https://travis-ci.org/stomp-js/ng2-stompjs)
 
-An Angular (Angular2, Angular4, Angular5 ...) style wrapper for @stomp/stompjs.
+An Angular (Angular2, Angular4, Angular5, Angular6 ...) style wrapper for @stomp/stompjs.
+
+## Version compatibility
+
+While we tried really hard to support multiple Angular versions with same release -
+actually succeeded for Anguar 2/4/5, it is not possible for Angular 6. This library
+makes quit eextensive use of rxjs which has undergone breaking changes in Angular 6.
+
+Going forward following numbering scheme will be followed:
+
+- 6.x.x - managed in `angular6` branch, will only support Angular 6 - use dependency like "^6.0.0" 
+- 4.x.x - managed in `master` branch, will support Angular 2/4/5 - use dependency like "^4.0.0"
+
+For the time being both versions will be maintained.
 
 ## Special Request
 
@@ -10,6 +24,11 @@ Recently documentation has been switched to
 [Compodoc](https://github.com/compodoc/compodoc) from TypeDoc.
 Please raise an issue if you find broken links or inconsistency in documentation.
 
+## Documentation
+
+Please head to https://stomp-js.github.io/ng2-stompjs/
+
+Changelog at https://stomp-js.github.io/ng2-stompjs/changelog.html
 
 ## Compatibility
 
@@ -267,6 +286,7 @@ updated configuration.
 - [Jimi (Dimitris) Charalampidis](https://github.com/JimiC)
 - [Deepak Kumar](https://github.com/kum-deepak)
 - Astha Deep
+- [Michel Promonet](https://github.com/mpromonet)
 - Everyone involved at https://github.com/stomp-js/stomp-websocket
 
 

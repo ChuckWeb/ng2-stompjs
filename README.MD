@@ -1,8 +1,26 @@
 # @stomp/ng2-stompjs
 
-[![Build Status](https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=master)](https://travis-ci.org/stomp-js/ng2-stompjs)
+Angular 2/4/5 [![Build Status](https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=angular4)](https://travis-ci.org/stomp-js/ng2-stompjs)
 
-An Angular (Angular2, Angular4, Angular5 ...) style wrapper for @stomp/stompjs.
+Angular 6 [![Build Status](https://travis-ci.org/stomp-js/ng2-stompjs.svg?branch=master)](https://travis-ci.org/stomp-js/ng2-stompjs)
+
+An Angular (Angular2, Angular4, Angular5, Angular6 ...) style wrapper for @stomp/stompjs.
+
+## Version Compatibility
+
+While we tried really hard to support multiple Angular versions with same release -
+actually succeeded for Anguar 2/4/5, it is not possible for Angular 6. This library
+makes quite extensive use of rxjs which has undergone breaking changes in Angular 6.
+
+Going forward following numbering scheme will be followed:
+
+- 6.x.x - managed in `master` branch, will only support Angular 6 - use dependency like "^6.0.0" 
+- 4.x.x - managed in `angular4` branch, will support Angular 2/4/5 - use dependency like "^4.0.0"
+
+For the time being both versions will be maintained. From October 2018, only critical
+updates will be applied to 4.x.x releases.
+
+As of now both versions offer exactly same APIs.
 
 ## Special Request
 
@@ -10,6 +28,11 @@ Recently documentation has been switched to
 [Compodoc](https://github.com/compodoc/compodoc) from TypeDoc.
 Please raise an issue if you find broken links or inconsistency in documentation.
 
+## Documentation
+
+Please head to https://stomp-js.github.io/ng2-stompjs/
+
+Changelog at https://stomp-js.github.io/ng2-stompjs/changelog.html
 
 ## Compatibility
 
@@ -41,10 +64,12 @@ from https://github.com/stomp-js/stomp-websocket
   https://stomp-js.github.io/ng2-stompjs/injectables/StompService.html,
   https://stomp-js.github.io/ng2-stompjs/injectables/StompRService.html
   and https://stomp-js.github.io/ng2-stompjs/index.html
-- See https://github.com/stomp-js/ng4-stompjs-demo for a working sample
-  using Angular4 and Angular CLI
-- See https://github.com/stomp-js/ng2-stompjs-demo for a working sample
-  using Angular2 and Angular CLI. This version also demonstrates fetching
+- General Demos (using Angular CLI)
+    - https://github.com/stomp-js/ng6-stompjs-demo
+    - https://github.com/stomp-js/ng5-stompjs-demo
+    - https://github.com/stomp-js/ng4-stompjs-demo
+    - https://github.com/stomp-js/ng2-stompjs-demo 
+- https://github.com/stomp-js/ng2-stompjs-demo also demonstrates fetching
   Stomp configuration using a http call (APP_INITIALIZER)
 - See [SockJS Support](https://stomp-js.github.io/ng2-stompjs/additional-documentation/sock-js.html).
   https://github.com/stomp-js/ng4-stompjs-demo/tree/sockjs for a sample
@@ -267,6 +292,7 @@ updated configuration.
 - [Jimi (Dimitris) Charalampidis](https://github.com/JimiC)
 - [Deepak Kumar](https://github.com/kum-deepak)
 - Astha Deep
+- [Michel Promonet](https://github.com/mpromonet)
 - Everyone involved at https://github.com/stomp-js/stomp-websocket
 
 

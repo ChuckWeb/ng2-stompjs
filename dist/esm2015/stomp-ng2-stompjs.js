@@ -1,26 +1,33 @@
+import { first, filter, share } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject as BehaviorSubject$1 } from 'rxjs/BehaviorSubject';
-import { Observable as Observable$1 } from 'rxjs/Observable';
-import { Subject as Subject$1 } from 'rxjs/Subject';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/first';
-import 'rxjs/add/operator/share';
-import { client, over } from '@stomp/stompjs/index';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { client, over } from '@stomp/stompjs';
 
-let StompState = {};
-StompState.CLOSED = 0;
-StompState.TRYING = 1;
-StompState.CONNECTED = 2;
-StompState.DISCONNECTING = 3;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+const StompState = {
+    CLOSED: 0,
+    TRYING: 1,
+    CONNECTED: 2,
+    DISCONNECTING: 3,
+};
 StompState[StompState.CLOSED] = "CLOSED";
 StompState[StompState.TRYING] = "TRYING";
 StompState[StompState.CONNECTED] = "CONNECTED";
 StompState[StompState.DISCONNECTING] = "DISCONNECTING";
 
 /**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * Angular2 STOMP Raw Service using \@stomp/stomp.js
  *
- * \@description This service handles subscribing to a
+ * You will only need the public properties and
+ * methods listed unless you are an advanced user. This service handles subscribing to a
  * message queue using the stomp.js library, and returns
  * values via the ES6 Observable specification for
  * asynchronous value streaming by wiring the STOMP
@@ -65,7 +72,7 @@ class StompRService {
             // Trigger the error subject
             this.errorSubject.next(error);
             if (typeof error === 'object') {
-                error = error.body;
+                error = (/** @type {?} */ (error)).body;
             }
             this.debug(`Error: ${error}`);
             // Check for dropped connection and try reconnecting
@@ -74,21 +81,19 @@ class StompRService {
                 this.state.next(StompState.CLOSED);
             }
         };
-        this.state = new BehaviorSubject$1(StompState.CLOSED);
-        this.connectObservable = this.state
-            .filter((currentState) => {
+        this.state = new BehaviorSubject(StompState.CLOSED);
+        this.connectObservable = this.state.pipe(filter((currentState) => {
             return currentState === StompState.CONNECTED;
-        });
+        }));
         // Setup sending queuedMessages
         this.connectObservable.subscribe(() => {
             this.sendQueuedMessages();
         });
-        this._serverHeadersBehaviourSubject = new BehaviorSubject$1(null);
-        this.serverHeadersObservable = this._serverHeadersBehaviourSubject
-            .filter((headers) => {
+        this._serverHeadersBehaviourSubject = new BehaviorSubject(null);
+        this.serverHeadersObservable = this._serverHeadersBehaviourSubject.pipe(filter((headers) => {
             return headers !== null;
-        });
-        this.errorSubject = new Subject$1();
+        }));
+        this.errorSubject = new Subject();
     }
     /**
      * Set configuration
@@ -99,7 +104,7 @@ class StompRService {
         this._config = value;
     }
     /**
-     * Initialize STOMP Client
+     * It will initialize STOMP Client.
      * @return {?}
      */
     initStompClient() {
@@ -118,7 +123,8 @@ class StompRService {
         // Auto reconnect
         this.client.reconnect_delay = this._config.reconnect_delay;
         if (!this._config.debug) {
-            this.debug = function () { };
+            this.debug = function () {
+            };
         }
         // Set function to debug print messages
         this.client.debug = this.debug;
@@ -128,7 +134,7 @@ class StompRService {
         this.setupReceipts();
     }
     /**
-     * Perform connection to STOMP broker
+     * It will connect to the STOMP broker.
      * @return {?}
      */
     initAndConnect() {
@@ -142,9 +148,7 @@ class StompRService {
         this.state.next(StompState.TRYING);
     }
     /**
-     * Disconnect the connection to the STOMP broker and clean up,
-     * not sure how this method will get called, if ever.
-     * Call this method only if you know what you are doing.
+     * It will disconnect from the STOMP broker.
      * @return {?}
      */
     disconnect() {
@@ -156,17 +160,17 @@ class StompRService {
         }
     }
     /**
-     * The current connection status with the STOMP broker
+     * It will return `true` if STOMP broker is connected and `false` otherwise.
      * @return {?}
      */
     connected() {
         return this.state.getValue() === StompState.CONNECTED;
     }
     /**
-     * Send a message to a named destination. The message must be string.
+     * It will send a message to a named destination. The message must be `string`.
      *
-     * The message will get locally queued if the STOMP broker is not connected. Attempt
-     * will be made to publish queued messages as soon as the broker gets connected.
+     * The message will get locally queued if the STOMP broker is not connected. It will attempt to
+     * publish queued messages as soon as the broker gets connected.
      *
      * @param {?} queueName
      * @param {?} message
@@ -183,7 +187,7 @@ class StompRService {
         }
     }
     /**
-     * Send queued messages
+     * It will send queued messages.
      * @return {?}
      */
     sendQueuedMessages() {
@@ -196,17 +200,17 @@ class StompRService {
         }
     }
     /**
-     * Subscribe to server message queues
+     * It will subscribe to server message queues
      *
-     * This method can safely be called even when STOMP broker is not connected. Further
-     * if the underlying STOMP connection drops and reconnects, it will resubscribe transparently.
+     * This method can be safely called even if the STOMP broker is not connected.
+     * If the underlying STOMP connection drops and reconnects, it will resubscribe automatically.
      *
      * If a header field 'ack' is not explicitly passed, 'ack' will be set to 'auto'. If you
      * do not understand what it means, please leave it as is.
      *
-     * Please note, however, while working with temporary queues, where the subscription request
+     * Note that when working with temporary queues where the subscription request
      * creates the
-     * underlying queue, during reconnect it might miss messages. This issue is not specific
+     * underlying queue, mssages might be missed during reconnect. This issue is not specific
      * to this library but the way STOMP brokers are designed to work.
      *
      * @param {?} queueName
@@ -215,26 +219,26 @@ class StompRService {
      */
     subscribe(queueName, headers = {}) {
         /* Well the logic is complicated but works beautifully. RxJS is indeed wonderful.
-         *
-         * We need to activate the underlying subscription immediately if Stomp is connected. If not it should
-         * subscribe when it gets next connected. Further it should re establish the subscription whenever Stomp
-         * successfully reconnects.
-         *
-         * Actual implementation is simple, we filter the BehaviourSubject 'state' so that we can trigger whenever Stomp is
-         * connected. Since 'state' is a BehaviourSubject, if Stomp is already connected, it will immediately trigger.
-         *
-         * The observable that we return to caller remains same across all reconnects, so no special handling needed at
-         * the message subscriber.
-         */
+             *
+             * We need to activate the underlying subscription immediately if Stomp is connected. If not it should
+             * subscribe when it gets next connected. Further it should re establish the subscription whenever Stomp
+             * successfully reconnects.
+             *
+             * Actual implementation is simple, we filter the BehaviourSubject 'state' so that we can trigger whenever Stomp is
+             * connected. Since 'state' is a BehaviourSubject, if Stomp is already connected, it will immediately trigger.
+             *
+             * The observable that we return to caller remains same across all reconnects, so no special handling needed at
+             * the message subscriber.
+             */
         this.debug(`Request to subscribe ${queueName}`);
         // By default auto acknowledgement of messages
         if (!headers['ack']) {
             headers['ack'] = 'auto';
         }
-        const /** @type {?} */ coldObservable = Observable$1.create((messages) => {
+        const /** @type {?} */ coldObservable = Observable.create((messages) => {
             /*
-             * These variables will be used as part of the closure and work their magic during unsubscribe
-             */
+                     * These variables will be used as part of the closure and work their magic during unsubscribe
+                     */
             let /** @type {?} */ stompSubscription;
             let /** @type {?} */ stompConnectedSubscription;
             stompConnectedSubscription = this.connectObservable
@@ -245,6 +249,7 @@ class StompRService {
                 }, headers);
             });
             return () => {
+                /* cleanup function, will be called when no subscribers are left */
                 this.debug(`Stop watching connection state (for ${queueName})`);
                 stompConnectedSubscription.unsubscribe();
                 if (this.state.getValue() === StompState.CONNECTED) {
@@ -257,29 +262,29 @@ class StompRService {
             };
         });
         /**
-         * Important - convert it to hot Observable - otherwise, if the user code subscribes
-         * to this observable twice, it will subscribe twice to Stomp broker. (This was happening in the current example).
-         * A long but good explanatory article at https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
-         */
-        return coldObservable.share();
+             * Important - convert it to hot Observable - otherwise, if the user code subscribes
+             * to this observable twice, it will subscribe twice to Stomp broker. (This was happening in the current example).
+             * A long but good explanatory article at https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
+             */
+        return coldObservable.pipe(share());
     }
     /**
-     * Handle messages to default queue, it will include any unhandled messages. We can use this for
-     * RPC type communications.
+     * It will handle messages received in the default queue. Messages that would not be handled otherwise
+     * get delivered to the default queue.
      * @return {?}
      */
     setupOnReceive() {
-        this.defaultMessagesObservable = new Subject$1();
+        this.defaultMessagesObservable = new Subject();
         this.client.onreceive = (message) => {
             this.defaultMessagesObservable.next(message);
         };
     }
     /**
-     * Emit all receipts.
+     * It will emit all receipts.
      * @return {?}
      */
     setupReceipts() {
-        this.receiptsObservable = new Subject$1();
+        this.receiptsObservable = new Subject();
         this.client.onreceipt = (frame) => {
             this.receiptsObservable.next(frame);
         };
@@ -291,21 +296,23 @@ class StompRService {
      * @return {?}
      */
     waitForReceipt(receiptId, callback) {
-        this.receiptsObservable.filter((frame) => {
+        this.receiptsObservable.pipe(filter((frame) => {
             return frame.headers['receipt-id'] === receiptId;
-        }).first().subscribe((frame) => {
-            callback();
+        }), first()).subscribe((frame) => {
+            callback(frame);
         });
     }
 }
 StompRService.decorators = [
     { type: Injectable },
 ];
-/**
- * @nocollapse
- */
+/** @nocollapse */
 StompRService.ctorParameters = () => [];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * Represents a configuration object for the
  * STOMPService to connect to.
@@ -315,11 +322,11 @@ class StompConfig {
 StompConfig.decorators = [
     { type: Injectable },
 ];
-/**
- * @nocollapse
- */
-StompConfig.ctorParameters = () => [];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * Angular2 STOMP Service using \@stomp/stomp.js
  *
@@ -348,16 +355,23 @@ class StompService extends StompRService {
 StompService.decorators = [
     { type: Injectable },
 ];
-/**
- * @nocollapse
- */
+/** @nocollapse */
 StompService.ctorParameters = () => [
     { type: StompConfig, },
 ];
 
 /**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * Generated bundle index. Do not edit.
  */
 
 export { StompRService, StompService, StompState, StompConfig };
-//# sourceMappingURL=ng2-stompjs.js.map
+//# sourceMappingURL=stomp-ng2-stompjs.js.map
